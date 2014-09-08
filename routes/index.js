@@ -1,10 +1,12 @@
-var express = require('express');
-var router = express.Router();
+var router = require('express').Router();
 var db = require("../lib/database")(process.ENV || 'development');
-var util = require("util");
+var passport = require('passport');
+var User = require('models/user')
+
 
 /* GET home page. */
 router.get('/', function(req, res) {
+  console.log(User.authenticate('rui@poh.com', 'rab0s'))
   db.select("user_name").from("user").where({ id: 1 })
     .then(function (username) {
       console.log(username)

@@ -1,3 +1,4 @@
+// cause we like it :-p
 require('coffee-script/register');
 
 var express = require('express');
