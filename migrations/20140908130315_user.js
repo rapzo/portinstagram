@@ -12,7 +12,6 @@ exports.up = function(knex, Promise) {
       table.datetime('token_expired');
       table.timestamps();
     });
-    
 };
 
 exports.down = function(knex, Promise) {

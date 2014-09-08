@@ -5,6 +5,7 @@ exports.up = function(knex, Promise) {
     .createTable('businesses', function(table) {
       table.increments('id');
       table.string('name');
+      table.timestamps();
     });
 };
 
