@@ -12,13 +12,15 @@ var db = require('knex')({
 
 /* GET home page. */
 router.get('/', function(req, res) {
-  console.log(util.inspect(db));
-  var users = db.select("user_name").from("user").where({id:1}).exec(function(err, user){
+  
+    var buses = db.select("*").from("business").exec(function(err, user){
     if(err){throw new Error(err);}
     console.log(user);
-    res.render('index', { title: 'Exaksjhd', user: user[0].user_name });
+    res.render('index', { title: 'Business List', buses: user[0].user_name });
   })
-  
+    
+    res.render('index', { title: 'Business List'});
+    
   
 });
 
