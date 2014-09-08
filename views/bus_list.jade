@@ -1,0 +1,7 @@
+extends layout
+
+block content
+  h1= title
+  ul
+    each bus in buses
+        li= bus.business_name
