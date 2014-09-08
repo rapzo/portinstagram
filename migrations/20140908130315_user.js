@@ -2,9 +2,10 @@
 
 exports.up = function(knex, Promise) {
   return knex.schema
-    .createTable("user", function(table){
+    .createTable("users", function(table){
       table.increments('id');
-      table.string('user_name');
+      table.string('name');
+      table.string('email');
     });
     
 };

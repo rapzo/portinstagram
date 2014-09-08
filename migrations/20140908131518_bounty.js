@@ -2,9 +2,11 @@
 
 exports.up = function(knex, Promise) {
     return knex.schema
-    .createTable("bounty", function(table) {
+    .createTable("bounties", function(table) {
       table.increments('id');
       table.string("description");
+      table.integer('business_id').references('businesses.id');
+      tables.integer("target_points");
     });
 };
 

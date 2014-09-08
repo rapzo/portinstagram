@@ -1,16 +1,20 @@
 var express = require('express');
 var router = express.Router();
 
-var db =
+var db = require("lib/database")(process.ENV || 'development')
 
 /* GET user details */
 router.get('/:id/', function(req, res) {
   console.log(req.params.id);
   
-  //select * from users where id = :id
-  //responder json
+  var user = db.select("*").from("users").where("id",req.params.id).exec(function(err, qset){
+    if(err){throw new Error(err);}
+    console.log(qset);
+   
+    res.send(qset);
+  })
   
-  res.send('respond with a resource');
+  //res.send('respond with a resource');
 });
 
 /* GET user bounty list */
