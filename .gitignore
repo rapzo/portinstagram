@@ -1,3 +1,6 @@
 node_modules
 public/.sass-cache
 npm-debug.log
+
+dev.sqlite3
+*~
