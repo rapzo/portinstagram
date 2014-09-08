@@ -1,2 +1,4 @@
-module.exports = new require("knex")(require("../../config/knexfile.js"))
+module.exports = (env) ->
+  new require('knex')(require('../../config/knexfile')[env])
+
 
