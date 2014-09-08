@@ -1,0 +1,46 @@
+
+
+- Users
+/api/users/ - todos users
+/api/users/<id>/ - user com id <id>
+/api/users/<id>/bounties/ - bounties ganhos por este user
+/api/users/<id>/participations/ - participações deste user
+/api/users/<id>/achievements/ - achievements deste user
+
+
+- Businesses
+/api/business/ - todos businesses
+/api/business/<id>/ - business com id <id>
+/api/business/<type>/ - businesses com type <type> (restaurante, café, loja, etc)
+
+
+
+- Bounties
+/api/bounty/<id>/ - bounty com id <id>
+/api/bounty/ - lista de bounties (com argumentos). default = mais recentes primeiro, não terminados
+    ?finished=1/0 - filtra bounties já terminados (default 0)
+    - filtração(escolher apenas um)
+        ?recent_first=1/0 - ordenação por mais recentes (default 1)
+        ?ending_first=1/0 - ordenação por mais próximos a terminar
+    
+    ?target_points_lower=<int> - exclui bounties com target points < <int>
+    ?target_points_upper=<int> - exclui bounties com target points >= <int>
+    
+    ?end_date=<end_date> - exclui bounties com end date >= que <end_date>
+    ?start_date=<start_date> - exclui bounties com start date < <start_date>
+    
+    ?reward=<reward type list> - inclui apenas bounties com type dentro de <reward type list> (default inclui todos os types)
+    
+    ?business_id=<business_id> - retorna bounties do business com id <business_id>
+
+
+- Participações
+/api/participation/ - todas as participações
+/api/participation/<id> - participação com id <id>
+
+- Achievements
+/api/achievements/<id>/ - achievement com id <id>
+
+
+
+
