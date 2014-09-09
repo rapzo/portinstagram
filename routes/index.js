@@ -5,14 +5,8 @@ var User = require('models/user')
 
 
 /* GET home page. */
-router.get('/', function(req, res) {
-  User.authenticate('rabo', 'coiso', function (model) {
-    console.log(model.get('user_name'))
-  })
-  db.select("user_name").from("user").where({ id: 1 })
-    .then(function (username) {
-      res.render('index', { title: 'Exaksjhd', user: username.shift().user_name });
-    })
+router.get('/', function (req, res) {
+  res.render('pages/index', { title: res.app.get('title') });
 });
 
 module.exports = router;

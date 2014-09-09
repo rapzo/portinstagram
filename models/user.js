@@ -23,9 +23,11 @@ var User = Base.extend({
 
 }, {
   authenticate: function (email, password, cb) {
-    var user = User.where({ user_name: email }).fetch()
-      .then(cb).catch(function (err) {
-        console.log(err);
+    User.where({ user_name: email }).fetch()
+      .then(function (user) {
+        cb(null, user);
+      }).catch(function (err) {
+        cb(err, null);
       })
   }
 })

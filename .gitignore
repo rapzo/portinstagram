@@ -1,6 +1,8 @@
 node_modules
 public/.sass-cache
 npm-debug.log
+bower_components
+*/bower_components
 
 dev.sqlite3
 *~
