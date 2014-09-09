@@ -6,7 +6,7 @@ exports.up = function(knex, Promise) {
       table.increments('id');
       table.string("description");
       table.integer('business_id').references('businesses.id');
-      tables.integer("target_points");
+      table.integer("target_points");
     });
 };
 
