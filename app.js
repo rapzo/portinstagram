@@ -10,9 +10,12 @@ var bodyParser = require('body-parser');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
-var bus = require("./routes/businesses");
+var businesses = require("./routes/businesses");
 
-var api_users = require("./routes/api/users");
+
+var api = {
+  users: require("./routes/api/users")
+};
 
 var app = express();
 
@@ -28,10 +31,18 @@ app.use(cookieParser());
 app.use(require('node-compass')({ mode: 'expanded' }));
 app.use(express.static(path.join(__dirname, 'public')));
 
+
+/**
+ * Stuffs about the app
+ */
+app.set('title', 'Portinstagram');
+
 app.use('/', routes);
+
+app.use('/login', require('lib/authenticate'));
 app.use('/users', users);
-app.use("/bus", bus);
-app.use("/api/users/", api_users);
+app.use('/business', businesses);
+app.use('/api/users', api.users);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -47,7 +58,7 @@ app.use(function(req, res, next) {
 if (app.get('env') === 'development') {
   app.use(function(err, req, res, next) {
     res.status(err.status || 500);
-    res.render('error', {
+    res.render('errors/error', {
       message: err.message,
       error: err
     });
@@ -58,11 +69,11 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.render('errors/error', {
     message: err.message,
     error: ["I'm so so so sorry T_T"]
   });
 });
 
-
 module.exports = app;
+
