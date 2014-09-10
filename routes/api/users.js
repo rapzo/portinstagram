@@ -46,13 +46,25 @@ router.get('/:id/bounties/won/', function(req, res) {
     
 });
 
-/* GET user participation list */
+/* GET user entry list */
 router.get('/:id/entries/', function(req, res) {
   req.user.load('entries').then(function(model){
         //TODO
         //esconder campos a mais que vêm do utilizador
         res.send(model)
     })
+  
+});
+
+
+/* GET businesses owned by this user*/
+router.get('/:id/businesses/', function(req, res) {
+  
+  db.select('id').from('businesses')
+    .where("businesses.owner", req.params.id)
+    .exec(function(err, user){
+    res.send(user);
+   });
   
 });
 

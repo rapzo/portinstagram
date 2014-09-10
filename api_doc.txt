@@ -6,18 +6,24 @@
 /api/users/<id>/ - user com id <id>
 /api/users/<id>/bounties/ - bounties ganhos por este user
 /api/users/<id>/participations/ - participações deste user
+/api/users/<id>/businesses/ - businesses deste user
 ##
 not implemented:
 /api/users/<id>/achievements/ - achievements deste user
 
 
+##DONE
 - Businesses
 /api/businesses/ - todos businesses
 /api/businesses/<id>/ - business com id <id>
-/api/businesses/<type>/ - businesses com type <type> (restaurante, café, loja, etc)
+/api/businesses/type/<type_id>/ - businesses com type <type_id> (restaurante, café, loja, etc)
+##
 
+
+##DONE
 - Business Types
 /api/business_types/ - todos business types
+##
 
 ##DONE
 - Bounties
