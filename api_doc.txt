@@ -1,10 +1,13 @@
 
 
+##DONE
 - Users
 /api/users/ - todos users
 /api/users/<id>/ - user com id <id>
 /api/users/<id>/bounties/ - bounties ganhos por este user
 /api/users/<id>/participations/ - participações deste user
+##
+not implemented:
 /api/users/<id>/achievements/ - achievements deste user
 
 
@@ -34,9 +37,11 @@
     ?business_id=<business_id> - retorna bounties do business com id <business_id>
 
 
-- Participações
-/api/participation/ - todas as participações
-/api/participation/<id> - participação com id <id>
+##DONE
+- Entries
+/api/entries/ - todas as entradas
+/api/entries/<id> - entrada com id <id>
+##
 
 - Achievements
 /api/achievements/<id>/ - achievement com id <id>
