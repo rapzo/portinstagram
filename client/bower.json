@@ -22,6 +22,7 @@
     "jquery": "~2.1.1",
     "underscore": "~1.7.0",
     "backbone": "~1.1.2",
-    "flat-ui": "~2.2.0"
+    "flat-ui": "~2.2.0",
+    "bootstrap-sass": "git@github.com:rapzo/bootstrap-sass.git#~3.2.0+2"
   }
 }
