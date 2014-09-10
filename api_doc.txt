@@ -33,7 +33,7 @@ not implemented:
     #DONE?end_date=<end_date> - exclui bounties com end date >= que <end_date>
     #DONE?start_date=<start_date> - exclui bounties com start date <= <start_date>
     
-    ?reward=<reward type list> - inclui apenas bounties com type dentro de <reward type list> (default inclui todos os types)
+    #DONE?reward=<reward type list> - inclui apenas bounties com type dentro de <reward type list> (default inclui todos os types)
     
     #DONE?business_id=<business_id> - retorna bounties do business com id <business_id>
 
@@ -43,6 +43,10 @@ not implemented:
 /api/entries/ - todas as entradas
 /api/entries/<id> - entrada com id <id>
 ##
+
+- Rewards
+/api/rewards/ - todos os rewards
+/api/rewards/<id>/ - rewards com id <id>
 
 - Achievements
 /api/achievements/<id>/ - achievement com id <id>

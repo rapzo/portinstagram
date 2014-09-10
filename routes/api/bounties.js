@@ -34,7 +34,15 @@ router.get('/', function(req, res) {
   else query.where("finished", 0)
   
   if (req.query.ending_first == 1) query.orderBy("end_date") //order by end_date
-  else query.orderBy("updated_at", "desc") //order by recently added
+  else query.orderBy("updated_at", "desc") //order by recently updated/added
+  
+
+  if (req.query.reward_type){
+    rtype = req.query.reward_type.split(",")
+
+    query.whereIn("reward_type", rtype)
+  
+  }
   
   
   query.exec(function(err, bounty){
