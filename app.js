@@ -15,7 +15,8 @@ var businesses = require("./routes/businesses");
 
 var api = {
   users: require("./routes/api/users"),
-  entries: require("./routes/api/entries")
+  entries: require("./routes/api/entries"),
+  bounties: require("./routes/api/bounties")
 };
 
 var app = express();
@@ -45,6 +46,7 @@ app.use('/users', users);
 app.use('/business', businesses);
 app.use('/api/users', api.users);
 app.use('/api/entries', api.entries);
+app.use('/api/bounties', api.bounties);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
