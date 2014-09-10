@@ -11,20 +11,7 @@ var User = Base.extend({
       return this.hasMany(Entry);
   },
   
-  bounties: function(){
-    return this.hasMany(Entry).through(Bounty);
-  },
-  
-  bounties_won: function(){
-    return this.load("entries.bounties", {
-        entry: function(qb){
-            qb.where("won", true);
-        }
-        })
-    }
     
-  ,
-
   /**
    * Hashing passwords
    */

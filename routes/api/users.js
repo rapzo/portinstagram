@@ -20,24 +20,29 @@ router.get('/:id/', function(req, res) {
 
 /* GET user bounty list */
 router.get('/:id/bounties/', function(req, res) {
-  
-  
-   req.user.load('bounties').then(function(model){
-        //TODO
-        //esconder campos a mais que vêm do utilizador
-        res.send(model)
-    })
+   
+   db.select('bounties.id').from('users')
+    .innerJoin("entries","users.id","entries.user_id")
+    .innerJoin("bounties", "entries.bounty_id", "bounties.id")
+    .exec(function(err, user){
+    res.send(user);
+   });
+   
   
 });
 
 /* GET user bounty list */
 router.get('/:id/bounties/won/', function(req, res) {
   
-  req.user.load('bounties').then(function(model){
-        //TODO
-        //esconder campos a mais que vêm do utilizador
-        res.send(model.toJSON())
-    })
+  db.select('bounties.id').from('users')
+    .innerJoin("entries","users.id","entries.user_id")
+    .innerJoin("bounties", "entries.bounty_id", "bounties.id")
+    .where("entries.won", true)
+    .exec(function(err, user){
+    res.send(user);
+   });
+   
+   
     
 });
 
@@ -54,10 +59,10 @@ router.get('/:id/entries/', function(req, res) {
 /* GET users list */
 router.get('/', function(req, res) {
   
-  //select * from users limit 100;
-  //responder json
-  
-  res.send('respond with a resource list');
+  db.select('id').from('users')
+    .exec(function(err, user){
+    res.send(user);
+   });
 });
 
 
