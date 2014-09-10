@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
       table.integer('business_id').references('businesses.id');
       table.integer("target_points");
       table.integer('reward_type').references('rewards.id');
+      table.string('hashtag');
       
       table.date("start_date");
       table.date("end_date");
