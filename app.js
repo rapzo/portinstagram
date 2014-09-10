@@ -14,7 +14,10 @@ var businesses = require("./routes/businesses");
 
 
 var api = {
-  users: require("./routes/api/users")
+  users: require("./routes/api/users"),
+  entries: require("./routes/api/entries"),
+  bounties: require("./routes/api/bounties"),
+  rewards: require("./routes/api/rewards"),
 };
 
 var app = express();
@@ -39,10 +42,13 @@ app.set('title', 'Portinstagram');
 
 app.use('/', routes);
 
-//app.use('/login', require('lib/authenticate'));
-//app.use('/users', users);
-//app.use('/business', businesses);
-//app.use('/api/users', api.users);
+app.use('/login', require('lib/authenticate'));
+app.use('/users', users);
+app.use('/business', businesses);
+app.use('/api/users', api.users);
+app.use('/api/entries', api.entries);
+app.use('/api/bounties', api.bounties);
+app.use('/api/rewards', api.rewards);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
