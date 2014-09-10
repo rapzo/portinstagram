@@ -44,9 +44,12 @@ not implemented:
 /api/entries/<id> - entrada com id <id>
 ##
 
+##DONE
 - Rewards
-/api/rewards/ - todos os rewards
-/api/rewards/<id>/ - rewards com id <id>
+#DONE /api/rewards/ - todos os rewards
+#WONTFIX /api/rewards/<id>/ - rewards com id <id>
+    #nao é necessário, nao serão muitos objectos e são bastante pequenos
+##
 
 - Achievements
 /api/achievements/<id>/ - achievement com id <id>
