@@ -12,15 +12,17 @@ not implemented:
 
 
 - Businesses
-/api/business/ - todos businesses
-/api/business/<id>/ - business com id <id>
-/api/business/<type>/ - businesses com type <type> (restaurante, café, loja, etc)
+/api/businesses/ - todos businesses
+/api/businesses/<id>/ - business com id <id>
+/api/businesses/<type>/ - businesses com type <type> (restaurante, café, loja, etc)
 
+- Business Types
+/api/business_types/ - todos business types
 
-
+##DONE
 - Bounties
-/api/bounty/<id>/ - bounty com id <id>
-/api/bounty/ - lista de bounties (com argumentos). default = mais recentes primeiro, não terminados
+/api/bounties/<id>/ - bounty com id <id>
+/api/bounties/ - lista de bounties (com argumentos). default = mais recentes primeiro, não terminados
     #DONE?finished=1/0 - filtra bounties já terminados (default 0)
     #DONE- filtração(escolher apenas um)
     #WONTFIX    ?recent_first=1/0 - ordenação por mais recentes (default 1)
@@ -36,7 +38,7 @@ not implemented:
     #DONE?reward=<reward type list> - inclui apenas bounties com type dentro de <reward type list> (default inclui todos os types)
     
     #DONE?business_id=<business_id> - retorna bounties do business com id <business_id>
-
+##
 
 ##DONE
 - Entries

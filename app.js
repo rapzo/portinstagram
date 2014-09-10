@@ -18,6 +18,7 @@ var api = {
   entries: require("./routes/api/entries"),
   bounties: require("./routes/api/bounties"),
   rewards: require("./routes/api/rewards"),
+  btypes: require("./routes/api/business_types"),
 };
 
 var app = express();
@@ -49,6 +50,7 @@ app.use('/api/users', api.users);
 app.use('/api/entries', api.entries);
 app.use('/api/bounties', api.bounties);
 app.use('/api/rewards', api.rewards);
+app.use('/api/business_types', api.btypes);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {

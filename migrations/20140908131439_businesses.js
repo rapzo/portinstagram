@@ -6,6 +6,9 @@ exports.up = function(knex, Promise) {
       table.increments('id');
 
       table.string('name');
+      
+      table.integer('owner').references('users.id');
+      table.integer('business_type').references('business_types.id');
 
       table.timestamps();
     });
