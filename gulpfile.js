@@ -3,8 +3,8 @@ var gulp = require('gulp');
 var path = require('path');
 var mocha = require('gulp-mocha');
 var sass = require('gulp-sass');
-var concat = require('concat');
-var uglify = require('uglify');
+var concat = require('gulp-concat');
+var uglify = require('gulp-uglify');
 var env = process.ENV || 'development';
 
 
