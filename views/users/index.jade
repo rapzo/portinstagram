@@ -1,0 +1,7 @@
+extends ../layouts/layout
+
+block content
+  each user in users
+    .row
+      .col-lg-12.col-md-12
+        a(href='/users/#{user.id}')= user.name

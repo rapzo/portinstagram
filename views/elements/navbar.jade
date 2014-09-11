@@ -16,4 +16,6 @@ nav(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
         li
           - if (!user)
             a(href='/login') login
+          - else
+            a(href='/profile')= user.email
 
