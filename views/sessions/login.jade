@@ -1,8 +1,12 @@
 extends ../layouts/layout
 
 block content
-  ul.login-choices
-    each service in ['instagram', 'facebook', 'twitter', 'g+']
-      li
-        a(href='/login/'+ service class='btn btn-hg btn-embossed btn-primary btn-' + service)
-          | Login with #{service}
+  .row
+    .col-lg-12.col-sm-8
+      h1 welcome to the games yo!
+
+      each service in [['instagram', 'instagram'], ['facebook', 'facebook'], ['twitter', 'twitter'], ['google-plus', 'g+']]
+        .col-lg-3
+          a(href='/login/'+ service class='btn btn-block btn-hg btn-social btn-' + service[0])
+            i(class="fa fa-#{service[0]}")
+            | Login with #{service[1]}
