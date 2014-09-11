@@ -14,8 +14,11 @@ nav(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
 
       ul.nav.navbar-nav.navbar-right
         li
-          - if (!user)
-            a(href='/login') login
-          - else
-            a(href='/profile')= user.email
+          .user
+            if !user
+              a(href='/login') login
+            else
+              .profile-pic
+                img(src=user.profile_picture, alt=user.username)
+              a(href='/profile')= user.username
 

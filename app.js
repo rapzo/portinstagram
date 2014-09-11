@@ -56,7 +56,7 @@ app.set('title', 'Portinstagram');
 
 app.use('/', routes);
 
-app.use('/login', require('lib/authenticate'));
+app.use('/login', require('lib/authenticate')(passport));
 app.use('/users', users);
 app.use('/business', businesses);
 app.use('/api/users', api.users);
