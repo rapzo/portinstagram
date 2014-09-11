@@ -7,6 +7,6 @@ block content
 
       each service in [['instagram', 'instagram'], ['facebook', 'facebook'], ['twitter', 'twitter'], ['google-plus', 'g+']]
         .col-lg-3
-          a(href='/login/'+ service class='btn btn-block btn-hg btn-social btn-' + service[0])
+          a(href='/login/'+ service[0] class='btn btn-block btn-hg btn-social btn-' + service[0])
             i(class="fa fa-#{service[0]}")
             | Login with #{service[1]}
