@@ -4,10 +4,12 @@ module.exports = {
 //    clientSecret: '4aec47e522642ce9b632b7bb8a2e58d9',
 //    callbackURL: 'http://psoc.12feettall.com/login/cb'
 //  },
+  
+  //app teste
   facebook: {
     clientID: '321006588082821',
     clientSecret: '0b4950bbbf7fcecc01b8b045d7136139',
-    callbackURL: 'http://127.0.0.1::1337/login/cb'
+    callbackURL: 'http://127.0.0.1:1337/login/cb'
   },
   twitter: {
     consumerKey: 't6mIIigzByTGWjVLalZ7vjQB6',
