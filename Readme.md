@@ -5,6 +5,15 @@
 
 herp
 
+### Install
+
+```
+npm install
+npm install -g bower nodemon gulp
+cd client && bower install
+gulp sass
+```
+
 ## Outro
 
 derp
