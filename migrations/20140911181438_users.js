@@ -9,6 +9,7 @@ exports.up = function(knex, Promise) {
     table.string('last_name');
     table.string('profile_picture');
     table.string('access_token');
+    table.string('refresh_token');
   });
 };
 

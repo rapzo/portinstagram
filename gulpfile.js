@@ -13,17 +13,34 @@ gulp.task('test', function () {
     .pipe(mocha({ reporter: 'spec' }));
 });
 
-console.log(path.join(__dirname, 'client') + '/*.scss');
 
 gulp.task('sass', function () {
-  return gulp.src(path.join(__dirname, 'client') + '/*.scss')
+  return gulp.src(
+    path.join(__dirname, 'client', 'app', 'scss') + '/*.scss'
+  )
     .pipe(sass())
-    .pipe(gulp.dest('./public/stylesheets/portinstagram'));
+    .pipe(gulp.dest(
+      path.join(__dirname, 'client', 'assets', 'app')
+    ));
 });
 
-gulp.task('css', function () {
-  return gulp.src(path.join(__dirname, 'public', 'stylesheets', '*.css'))
-    .pipe(concat('style.css'))
+gulp.task('vendor', function () {
+  var base = path.join(__dirname, 'client', 'assets', 'vendor') + '/';
+
+  return gulp.src([
+    base + 'bootstrap.css',
+    base + 'flat-ui.css',
+    base + 'bootstrap-social.css'
+  ])
+    .pipe(concat('vendor.css'))
+    .pipe(gulp.dest(path.join(__dirname, 'public', 'stylesheets') + '/'))
+});
+
+gulp.task('css', ['sass', 'vendor'], function () {
+  return gulp.src(
+    path.join(__dirname, 'client', 'assets', 'app') + '/style.css'
+  )
+    .pipe(concat('app.css'))
     .pipe(gulp.dest(path.join(__dirname, 'public', 'stylesheets')))
 });
 
