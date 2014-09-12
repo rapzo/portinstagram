@@ -89,7 +89,7 @@ app.get('/logout', function (req, res) {
 
 app.use('/users', auth.current_user, users);
 app.use('/business', auth.current_user, businesses);
-app.use('/bounties', bounties);
+app.use('/bounties', auth.current_user, bounties);
 
 app.use('/api/users', auth.current_user, api.users);
 app.use('/api/entries', auth.current_user, api.entries);

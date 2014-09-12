@@ -5,10 +5,6 @@ router.get('/', current_user, function (req, res) {
   res.render('pages/index');
 });
 
-router.get('/bounties', current_user, function (req, res) {
-  res.render('bounties/index');
-});
-
 router.get('/hof', current_user, function (req, res) {
   res.render('hof/index');
 });
