@@ -1,4 +1,4 @@
-@import 'bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables';
+@import '../../bower_components/bootstrap-sass/assets/stylesheets/bootstrap/variables';
 
 $bs-height-base: ($line-height-computed + $padding-base-vertical * 2);
 $bs-height-lg:   (floor($font-size-large * $line-height-base) + $padding-large-vertical * 2);
@@ -7,7 +7,7 @@ $bs-height-xs:   (floor($font-size-small * 1.2) + $padding-small-vertical + 1);
 
 body {
   padding-top: 80px;
-  background: #2980b9;
+  background: #ecf0f1;
 }
 
 .btn-social {

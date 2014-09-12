@@ -10,8 +10,7 @@ var User = Base.extend({
   entries: function(){
       return this.hasMany(Entry);
   },
-  
-    
+
   /**
    * Hashing passwords
    */
@@ -37,16 +36,43 @@ var User = Base.extend({
         cb(err, null);
       })
   },
-  
+
   getById: function(id, cb) {
     User.where('id', id)
       .fetch()
       .then(function(model){ cb(null, model) })
       .catch(function(err){ cb(err, null) })
   },
-  
-  
-  
+
+  findOrCreate: function (data, cb) {
+    User.where({ 'provider': data.provider, 'provider_id': data.id })
+      .fetch()
+      .then(function (user) {
+        if (!user) {
+          User
+            .forge(data)
+            .save()
+            .then(function (user) {
+              cb(null, user.pick(
+                'id', 'name', 'email', 'provider', 'provider_id', 'username', 'data_pic'
+              ))
+            })
+            .catch(function (err) { cb(err, null) })
+        } else {
+
+          user
+            .set(data)
+            .save()
+            .then(function (user) {
+              cb(null, user.pick(
+                'id', 'name', 'email', 'provider', 'provider_id', 'username', 'data_pic'
+              ))
+            })
+            .catch(function (err) { cb(err, null) })
+        }
+      })
+      .catch(function (err) { cb(err, null) })
+  }
 })
 
 module.exports = User

@@ -1,0 +1,14 @@
+body {
+  padding-top: 80px;
+  background: #ecf0f1; }
+
+.btn-social {
+  padding-left: 44px !important; }
+  .btn-social > :first-child {
+    top: 10.66667px !important;
+    border-right: 0 !important;
+    padding-left: 7.33333px !important; }
+
+.navbar .profile-pic {
+  border-radius: 20px;
+  border: #fff 3px solid; }
