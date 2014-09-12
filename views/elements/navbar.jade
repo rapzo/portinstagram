@@ -17,8 +17,10 @@ nav(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
           a(href='/hof') hall of fame
 
       ul.nav.navbar-nav.navbar-right
-        li
-          if user
+        if user
+          li
             a(href='/profile')= user.username
-          else
+        else
+          li
             a(href='/login') login
+          li
