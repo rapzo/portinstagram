@@ -22,7 +22,18 @@ body {
 
 .navbar {
   .profile-pic {
-    border-radius: 20px;
-    border: #fff 3px solid;
+    position: absolute;
+    top: 10px;
+    left: 50%;
+    border-radius: 50%;
+    border: #34495E 6px solid;
+    z-index: 1000;
+
+    img {
+      border-radius: 50%;
+      width: 55px;
+      height: 55px;
+      border: #fff 3px solid;
+    }
   }
 }
