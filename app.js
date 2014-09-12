@@ -15,6 +15,7 @@ var RedisStore = require('connect-redis')(session);
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var businesses = require("./routes/businesses");
+var bounties = require("./routes/bounties");
 
 
 var api = {
@@ -71,7 +72,6 @@ app.set('title', 'Portinstagram');
 
 app.use('/', routes);
 
-
 app
   .use('/login', require('lib/authenticate')(passport))
   .get('/login', function (req, res) {
@@ -89,12 +89,15 @@ app.get('/logout', function (req, res) {
 
 app.use('/users', auth.current_user, users);
 app.use('/business', auth.current_user, businesses);
+app.use('/bounties', bounties);
+
 app.use('/api/users', auth.current_user, api.users);
 app.use('/api/entries', auth.current_user, api.entries);
 app.use('/api/bounties', auth.current_user, api.bounties);
 app.use('/api/rewards', auth.current_user, api.rewards);
 app.use('/api/business_types', auth.current_user, api.btypes);
 app.use('/api/businesses', auth.current_user, api.businesses);
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
