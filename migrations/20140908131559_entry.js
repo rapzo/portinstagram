@@ -10,6 +10,7 @@ exports.up = function(knex, Promise) {
       table.string('caption');
       table.integer('points');
       table.boolean('won');
+      table.string('media_id');
 
       table.timestamps();
     });
