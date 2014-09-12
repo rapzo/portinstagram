@@ -26,6 +26,8 @@ var api = {
   businesses: require("./routes/api/businesses")
 };
 
+var auth = require('lib/authenticate/middleware');
+
 var app = express();
 
 // view engine setup
@@ -68,17 +70,31 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('title', 'Portinstagram');
 
 app.use('/', routes);
-app.use('/login', require('lib/authenticate')(passport));
 
-app.all('/*', authenticated, current_user);
-app.use('/users', users);
-app.use('/business', businesses);
-app.use('/api/users', api.users);
-app.use('/api/entries', api.entries);
-app.use('/api/bounties', api.bounties);
-app.use('/api/rewards', api.rewards);
-app.use('/api/business_types', api.btypes);
-app.use('/api/businesses', api.businesses);
+
+app
+  .use('/login', require('lib/authenticate')(passport))
+  .get('/login', function (req, res) {
+    if (req.isAuthenticated()) res.redirect('/');
+
+    res.render('sessions/login', { title: 'login' });
+  });
+
+app.get('/logout', function (req, res) {
+  if (!req.isAuthenticated()) res.redirect('/login');
+
+  req.logout();
+  res.redirect('/');
+});
+
+app.use('/users', auth.current_user, users);
+app.use('/business', auth.current_user, businesses);
+app.use('/api/users', auth.current_user, api.users);
+app.use('/api/entries', auth.current_user, api.entries);
+app.use('/api/bounties', auth.current_user, api.bounties);
+app.use('/api/rewards', auth.current_user, api.rewards);
+app.use('/api/business_types', auth.current_user, api.btypes);
+app.use('/api/businesses', auth.current_user, api.businesses);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -99,7 +115,7 @@ if (app.get('env') === 'development') {
       error: err
     });
   });
-}
+} else {
 
 // production error handler
 // no stacktraces leaked to user
@@ -110,42 +126,6 @@ app.use(function(err, req, res, next) {
     error: ["I'm so so so sorry T_T"]
   });
 });
-
-
-
-/**
- * Helpers
- */
-var User = require('models/user');
-
-
-function authenticated(req, res, next) {
-  if (req.isAuthenticated()) { return next(); }
-  return res.redirect('/login');
-}
-
-function current_user(req, res, next) {
-
-  console.log('Current user: '+ req.user.id);
-
-  if (null === req.session.user) {
-    return next(new Error('Not allowed here.'));
-  }
-
-  new User({ id: req.user.id }).fetch()
-    .then(function (user) {
-      if (!user) {
-        return next(new Error(
-          'No user found with `'+ req.user.id +'`'
-        ));
-      }
-      res.locals.user = user;
-      next();
-    })
-    .catch(function (err) {
-      next(err);
-    });
 }
 
 module.exports = app;
-

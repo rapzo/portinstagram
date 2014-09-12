@@ -1,23 +1,17 @@
 var router = require('express').Router();
-var passport = require('passport');
-var User = require('models/user');
+var current_user = require('lib/authenticate/middleware').current_user;
 
-/* GET home page. */
-router.get('/', function (req, res) {
-  if (req.session.passport && req.session.passport.user) {
-    new User({ id: req.session.passport.user }).fetch()
-      .then(function (user) {
-
-        res.render('pages/index', {
-          title: res.app.get('title'),
-          user: user.toJSON()
-        });
-      })
-  } else {
-    res.render('pages/index', {
-      title: res.app.get('title')
-    });
-  }
+router.get('/', current_user, function (req, res) {
+  res.render('pages/index');
 });
+
+router.get('/bounties', current_user, function (req, res) {
+  res.render('bounties/index');
+});
+
+router.get('/hof', current_user, function (req, res) {
+  res.render('hof/index');
+});
+
 
 module.exports = router;

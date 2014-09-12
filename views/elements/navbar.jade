@@ -7,7 +7,7 @@ nav(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
     .navbar-header
       button(type='button', class='navbar-toggle' data-toggle='collapse' data-target='#navbar-collapser')
         span.sr-only Toggle navigation
-      a(href='/', class='navbar-brand') &pi;nstagram
+      a(href='/', class='navbar-brand') &pi;
 
     .collapse.navbar-collapse#navbar-collapser
       ul.nav.navbar-nav.navbar-left
@@ -18,7 +18,7 @@ nav(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
 
       ul.nav.navbar-nav.navbar-right
         li
-          if !user
-            a(href='/login') login
-          else
+          if user
             a(href='/profile')= user.username
+          else
+            a(href='/login') login
