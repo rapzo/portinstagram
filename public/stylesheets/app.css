@@ -10,5 +10,13 @@ body {
     padding-left: 7.33333px !important; }
 
 .navbar .profile-pic {
-  border-radius: 20px;
-  border: #fff 3px solid; }
+  position: absolute;
+  top: 10px;
+  left: 50%;
+  border-radius: 50%;
+  border: #34495E 6px solid; }
+  .navbar .profile-pic img {
+    border-radius: 50%;
+    width: 55px;
+    height: 55px;
+    border: #fff 3px solid; }

@@ -45,7 +45,7 @@ var User = Base.extend({
   },
 
   findOrCreate: function (data, cb) {
-    User.where({ 'provider': data.provider, 'provider_id': data.id })
+    User.where({ 'provider': data.provider, 'provider_id': data.provider_id })
       .fetch()
       .then(function (user) {
         if (!user) {
@@ -59,7 +59,6 @@ var User = Base.extend({
             })
             .catch(function (err) { cb(err, null) })
         } else {
-
           user
             .set(data)
             .save()

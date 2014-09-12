@@ -28,7 +28,7 @@ gulp.task('vendor', function () {
   var base = path.join(__dirname, 'client', 'assets', 'vendor') + '/';
 
   return gulp.src([
-    base + 'bootstrap.css',
+    base + 'bootstrap.min.css',
     base + 'flat-ui.css',
     base + 'bootstrap-social.css'
   ])

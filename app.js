@@ -9,6 +9,8 @@ var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
+var RedisStore = require('connect-redis')(session);
+
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
@@ -34,14 +36,25 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+/**
+ * Sessions
+ */
+var redis_opts = {
+  host: '127.0.0.1',
+  port: 6379
+};
+
 app.use(cookieParser());
 app.use(session({
+  store: new RedisStore(redis_opts),
   secret: 'ptaqpriuesmerd4!!442%',
   resave: true,
   saveUninitialized: true
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 /**
  * And them statics
@@ -55,8 +68,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.set('title', 'Portinstagram');
 
 app.use('/', routes);
-
 app.use('/login', require('lib/authenticate')(passport));
+
+app.all('/*', authenticated, current_user);
 app.use('/users', users);
 app.use('/business', businesses);
 app.use('/api/users', api.users);
@@ -96,6 +110,42 @@ app.use(function(err, req, res, next) {
     error: ["I'm so so so sorry T_T"]
   });
 });
+
+
+
+/**
+ * Helpers
+ */
+var User = require('models/user');
+
+
+function authenticated(req, res, next) {
+  if (req.isAuthenticated()) { return next(); }
+  return res.redirect('/login');
+}
+
+function current_user(req, res, next) {
+
+  console.log('Current user: '+ req.user.id);
+
+  if (null === req.session.user) {
+    return next(new Error('Not allowed here.'));
+  }
+
+  new User({ id: req.user.id }).fetch()
+    .then(function (user) {
+      if (!user) {
+        return next(new Error(
+          'No user found with `'+ req.user.id +'`'
+        ));
+      }
+      res.locals.user = user;
+      next();
+    })
+    .catch(function (err) {
+      next(err);
+    });
+}
 
 module.exports = app;
 

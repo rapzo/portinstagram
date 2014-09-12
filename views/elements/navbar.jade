@@ -1,12 +1,16 @@
 nav(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
   .container-fluid
+    if user
+      .profile-pic
+        img(src=user.profile_picture, alt=user.username)
+
     .navbar-header
       button(type='button', class='navbar-toggle' data-toggle='collapse' data-target='#navbar-collapser')
         span.sr-only Toggle navigation
-      a(href='/', class='navbar-brand') Portinstagram
+      a(href='/', class='navbar-brand') &pi;nstagram
 
     .collapse.navbar-collapse#navbar-collapser
-      ul.nav.navbar-nav
+      ul.nav.navbar-nav.navbar-left
         li
           a(href='/bounties') bounties
         li
@@ -17,6 +21,4 @@ nav(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
           if !user
             a(href='/login') login
           else
-            a(href='/profile')
-              img(src=user.profile_picture, alt=user.username, class='profile-pic')
-              = user.username
+            a(href='/profile')= user.username
