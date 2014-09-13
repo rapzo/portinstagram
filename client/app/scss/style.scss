@@ -23,11 +23,14 @@ body {
 .navbar {
   .profile-pic {
     position: absolute;
+    left: 0;
+    right: 0;
     top: 10px;
-    left: 50%;
+    margin: 0 auto;
     border-radius: 50%;
     border: #34495E 6px solid;
     z-index: 1000;
+    display: table;
 
     img {
       border-radius: 50%;
