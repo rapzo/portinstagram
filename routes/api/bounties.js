@@ -19,7 +19,7 @@ router.get('/', function(req, res) {
   
   console.log(req.query);
   
-  var query = db.select('id').from('bounties')
+  var query = db.select('*').from('bounties')
 
   if (req.query.business_id) query.where("business_id", req.query.business_id)
 

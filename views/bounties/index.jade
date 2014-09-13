@@ -3,7 +3,12 @@ extends ../layouts/layout
 block content
 
   h1= title
-  p cenjansldajsjkad
+  
   ul
-    each bounty in bounties_list
-      li= bounty
+    each bounty in bounties
+      li!= '<b>' + bounty.name + '</b>'
+      ul
+          li!= bounty.description
+          li=  '#'+bounty.hashtag
+          li!= '<b>Start Date: </b>' + bounty.start_date
+          li!= '<b>End Date: </b>' + bounty.end_date
