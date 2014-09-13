@@ -3,13 +3,15 @@ extends ../layouts/layout
 block content
 
   //h1= title
+  h1= bounty.name
+  p= bounty.description
   
   if win
     h2
         p Winner!
         a(href=win.link)
             p!= win.caption
-            img(src='http://placehold.it/150x150')
+            img(src=win.thumbnail_url)
                 
   else
     p= 'No winner for this bounty yet...'
@@ -21,6 +23,6 @@ block content
                 li
                     a(href=entry.link)
                         p!= entry.caption
-                        img(src='http://placehold.it/150x150')
+                        img(src=entry.thumbnail_url)
   else
-      p= 'No entries for this bounty yet...' 
+      p= 'No entries for this bounty yet...'
