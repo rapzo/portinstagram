@@ -15,6 +15,7 @@ exports.up = function(knex, Promise) {
     table.string('imageable_type');
 
     table.timestamps();
+    
   });
 };
 

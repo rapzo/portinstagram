@@ -11,11 +11,11 @@ block content
                 div(class='effeckt-caption', data-effeckt-type='revolving-door-left')
                     img(src=bounty.file_path, width=150, height=150)
                     figcaption
-                        div(class='effeckt-figcaption-wrap')
-                            ul
-                              li=  '#'+bounty.hashtag
-                              li!= '<b>Start Date: </b>' + bounty.start_date
-                              li!= '<b>End Date: </b>' + bounty.end_date
-                              li
-                                a(href='http://localhost:1337/bounties/' + bounty.id) See more
+                        a(href='http://localhost:1337/bounties/' + bounty.id)
+                            div(class='effeckt-figcaption-wrap')
+                                ul
+                                  li=  '#'+bounty.hashtag
+                                  li!= '<b>Start Date: </b>' + bounty.start_date
+                                  li!= '<b>End Date: </b>' + bounty.end_date
+                                  
 
