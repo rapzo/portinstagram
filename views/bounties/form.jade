@@ -1,7 +1,7 @@
 extends ../layouts/layout
 
 block content
-  form(action='/bounties/new', method='post', enctype='multipart/form-data', name='bounty-new', class='form-horizontal', role='form')
+  form(action='/bounties/new', method='post', name='bounty-new', class='form-horizontal', role='form')
     .form-group
       label(class='col-sm-2 col-sm-offset-2 control-label', for='bounty-title') title
       .col-sm-5
