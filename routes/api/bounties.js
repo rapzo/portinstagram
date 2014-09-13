@@ -60,6 +60,8 @@ router.get('/', function(req, res) {
   
   }
   
+  //query.innerJoin("pictures", "bounties.id", "pictures.imageable_id")
+  
   
   query.exec(function(err, bounty){
     res.send(bounty);
