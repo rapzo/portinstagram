@@ -13,15 +13,15 @@ INSERT INTO "bounties" VALUES(1,'o primeiro',1,10,1,'hash',NULL,'2014-09-10',0, 
 INSERT INTO "bounties" VALUES(2,'o segundo', 1,20,2,'hash2','2014-09-10', '2014-09-12',0,'Segundo', NULL, '2014-09-09');
 INSERT INTO "bounties" VALUES(3, 'este esta terminado' ,2,30,3,'hash3','2014-09-10','2014-09-20', 1,'Terceiro',NULL, '2014-09-10');
 
-INSERT INTO "entries" VALUES(1,1,NULL,'cenas',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "entries" VALUES(2,10,NULL,'cenas',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "entries" VALUES(3,1,NULL,'coisas',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "entries" VALUES(4,1,NULL,'coisas boas',NULL,1,NULL,NULL,NULL);
-INSERT INTO "entries" VALUES(5,1,1,'coisas boas',NULL,1,NULL,NULL,NULL);
-INSERT INTO "entries" VALUES(7,NULL,NULL,'ad',NULL,NULL,NULL,NULL,NULL);
-INSERT INTO "entries" VALUES(8,3,1,'asd',83,0,'9898',NULL,NULL);
-INSERT INTO "entries" VALUES(12,3,1,'Globs of the #girlscoutcookies 🍪🔥 #cookies #mothershipglass #straightfab #slabsnotdabs',97,0,'808069340143151235_1176686913',NULL,NULL);
-INSERT INTO "entries" VALUES(13,3,1,'Stumbled upon this old chunk of #girlscoutcookies 🔥🔥🍪🍪 #stillfire',103,0,'808001120610675284_1176686913',NULL,NULL);
+INSERT INTO "entries" VALUES(1,1,NULL,'cenas',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "entries" VALUES(2,10,NULL,'cenas',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "entries" VALUES(3,1,NULL,'coisas',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "entries" VALUES(4,1,NULL,'coisas boas',NULL,1,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "entries" VALUES(5,1,1,'coisas boas',NULL,1,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "entries" VALUES(7,NULL,NULL,'ad',NULL,NULL,NULL,NULL,NULL,NULL,NULL);
+INSERT INTO "entries" VALUES(8,3,1,'asd',83,0,'9898',NULL,NULL,NULL,NULL);
+INSERT INTO "entries" VALUES(12,3,1,'Globs of the #girlscoutcookies 🍪🔥 #cookies #mothershipglass #straightfab #slabsnotdabs',97,0,'808069340143151235_1176686913','','',NULL,NULL);
+INSERT INTO "entries" VALUES(13,3,1,'Stumbled upon this old chunk of #girlscoutcookies 🔥🔥🍪🍪 #stillfire',103,0,'808001120610675284_1176686913','http://instagram.com/p/s2mLz8HepU','http://scontent-a.cdninstagram.com/hphotos-xfa1/t51.2885-15/10693289_1466279460300635_539006559_s.jpg',NULL,NULL);
 
 INSERT INTO "rewards" VALUES(1,'freebie');
 INSERT INTO "rewards" VALUES(2,'discount');

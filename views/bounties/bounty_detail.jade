@@ -1,0 +1,25 @@
+extends ../layouts/layout
+
+block content
+
+  //h1= title
+  
+  if win
+    h2
+        p Winner!
+        a(href=win.link)
+            p!= win.caption
+            img(src='http://placehold.it/150x150')
+                
+  else
+    p= 'No winner for this bounty yet...'
+    
+  
+  ul(class='small-block-grid-3')
+    p= 'Contestants:'
+    each entry in entries
+            li
+                a(href=entry.link)
+                    p!= entry.caption
+                    img(src='http://placehold.it/150x150')
+                    

@@ -6,11 +6,27 @@ var db = require("lib/database")(process.ENV || 'development')
 /* GET bounty details */
 router.get('/:id/', function(req, res) {
 
+    console.log("bounty detail"+req.params.id);
+    
     db.select('*').from('bounties')
-    .where("id", req.params.id)
+    //.innerJoin("entries", "bounties.id", "entries.bounty_id")
+    .where("bounties.id", req.params.id)
     .exec(function(err, bounty){
-    res.send(bounty);
-   });
+        console.log(bounty);
+        res.send(bounty);
+    });
+  
+});
+
+router.get('/:id/entries', function(req, res) {
+
+    db.select('*').from('entries')
+    //.innerJoin("entries", "bounties.id", "entries.bounty_id")
+    .where("bounty_id", req.params.id)
+    .exec(function(err, bounty){
+        console.log(bounty);
+        res.send(bounty);
+    });
   
 });
 
