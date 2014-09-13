@@ -18,18 +18,24 @@ block content
          input(type='text', name='tag', id='bounty-tag', class='form-control flat input-lg')
 
     .form-group
-      label(class='col-sm-2 col-sm-offset-2 control-label', for='bounty-start') starting
+      label(class='col-sm-3 col-sm-offset-2 control-label', for='bounty-start') starting
       .col-sm-4.input-group.date#dtpicker-start
         input(type='text', name='start', id='bounty-start', class='form-control flat input-lg')
         span.input-group-addon
           span.fui-calendar
 
     .form-group
-      label(class='col-sm-2 col-sm-offset-2 control-label', for='bounty-start') ending
+      label(class='col-sm-3 col-sm-offset-2 control-label', for='bounty-start') ending
       .col-sm-4.input-group.date#dtpicker-start
         input(type='text', name='end', id='bounty-end', class='form-control flat input-lg')
         span.input-group-addon
           span.fui-calendar
+    .form-group
+      label(class='col-sm-2 col-sm-offset-2 control-label', for='bounty-background') background
+      .col-sm-5
+         input(type='file', name='background', id='bounty-background', class='form-control flat input-lg')
+
+
 
     .form-group
       .col-sm-10.col-sm-offset-4
