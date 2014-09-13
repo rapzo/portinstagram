@@ -38,7 +38,7 @@ gulp.task('vendor', function () {
 
 gulp.task('css', ['sass', 'vendor'], function () {
   return gulp.src(
-    path.join(__dirname, 'client', 'assets', 'app') + '/style.css'
+    path.join(__dirname, 'client', 'assets', 'app') + '/*.css'
   )
     .pipe(concat('app.css'))
     .pipe(gulp.dest(path.join(__dirname, 'public', 'stylesheets')))

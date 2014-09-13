@@ -1,11 +1,18 @@
 if user
   li.dropdown
     a(href='#', class='dropdown-toggle', data-toggle='dropdown')
+      span.fui-bubble
+      span.navbar-unread
+    ul(class='dropdown-menu', role='menu')
+      li
+
+  li.dropdown
+    a(href='#', class='dropdown-toggle', data-toggle='dropdown')
       = user.username
       span.caret
     ul(class='dropdown-menu', role='menu')
       li
-        a(href='/profile')= user.username
+        a(href='/profile') me & my bag
       li
         a(href='/logout') logout
 

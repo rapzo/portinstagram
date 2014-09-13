@@ -10,12 +10,12 @@ var bodyParser = require('body-parser');
 var passport = require('passport');
 var session = require('express-session');
 var RedisStore = require('connect-redis')(session);
-
+var busboy = require('connect-busboy');
 
 var routes = require('./routes/index');
 var users = require('./routes/users');
 var businesses = require("./routes/businesses");
-var bounties = require("./routes/bounties");
+var bounties = require('lib/bounties');
 
 
 var api = {
@@ -39,6 +39,7 @@ app.set('view engine', 'jade');
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use(busboy());
 
 /**
  * Sessions
@@ -57,6 +58,7 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
+
 
 
 /**
@@ -118,7 +120,7 @@ if (app.get('env') === 'development') {
       error: err
     });
   });
-} else {
+}
 
 // production error handler
 // no stacktraces leaked to user
@@ -129,6 +131,6 @@ app.use(function(err, req, res, next) {
     error: ["I'm so so so sorry T_T"]
   });
 });
-}
+
 
 module.exports = app;
