@@ -14,12 +14,13 @@ block content
   else
     p= 'No winner for this bounty yet...'
     
-  
-  ul(class='small-block-grid-3')
-    p= 'Contestants:'
-    each entry in entries
-            li
-                a(href=entry.link)
-                    p!= entry.caption
-                    img(src='http://placehold.it/150x150')
-                    
+  if entries.length != 0  
+      ul(class='small-block-grid-3')
+        p= 'Contestants:'
+        each entry in entries
+                li
+                    a(href=entry.link)
+                        p!= entry.caption
+                        img(src='http://placehold.it/150x150')
+  else
+      p= 'No entries for this bounty yet...' 

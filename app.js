@@ -38,6 +38,7 @@ app.set('view engine', 'jade');
 // app.use(favicon(__dirname + '/public/favicon.ico'));
 app.use(logger('dev'));
 app.use(bodyParser.json());
+app.use(bodyParser.raw(type='multipart/form-data'));
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(busboy());
 
@@ -58,8 +59,6 @@ app.use(session({
 }));
 app.use(passport.initialize());
 app.use(passport.session());
-
-
 
 /**
  * And them statics
