@@ -2,8 +2,21 @@ extends ../layouts/layout
 
 block content
 
-  h1= title
-  p cenjansldajsjkad
-  ul
+  //h1= title
+  
+  ul(class='small-block-grid-3')
     each bounty in bounties
-      li= bounty
+            li
+                p!= '<b>' + bounty.name + '</b>'
+                div(class='effeckt-caption', data-effeckt-type='revolving-door-left')
+                    img(src='http://www.bassett-tennis.co.uk/gallery/1302020843_small.jpg')
+                    figcaption
+                        div(class='effeckt-figcaption-wrap')
+                            ul
+                              li!= bounty.description
+                              li=  '#'+bounty.hashtag
+                              li!= '<b>Start Date: </b>' + bounty.start_date
+                              li!= '<b>End Date: </b>' + bounty.end_date
+                              li
+                                a(href='http://localhost:1337/bounties/' + bounty.id) See more
+

@@ -16,6 +16,8 @@ exports.up = function(knex, Promise) {
       
       table.boolean("finished");
       
+      table.string("name");
+      
       table.timestamps();
     });
 };
