@@ -11,6 +11,7 @@ exports.up = function(knex, Promise) {
       table.integer('reward_type').references('rewards.id');
       table.string('hashtag');
       
+      
       table.date("start_date");
       table.date("end_date");
       
@@ -19,6 +20,8 @@ exports.up = function(knex, Promise) {
       table.string("name");
       
       table.timestamps();
+      
+      table.string("file_path");
     });
 };
 
