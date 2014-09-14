@@ -6,7 +6,7 @@ $bs-height-sm:   (floor($font-size-small * 1.5) + $padding-small-vertical * 2);
 $bs-height-xs:   (floor($font-size-small * 1.2) + $padding-small-vertical + 1);
 
 body {
-  padding-top: 80px;
+  padding-top: 18%;
   background: #ecf0f1;
 }
 
@@ -44,9 +44,11 @@ body {
 }
 
 .the-can {
-  // background: #7f8c8d;
-  // border-radius: 20px;
-  padding-bottom: 30px;
+    position: relative;
+    padding: 25px;
+    margin-bottom: 20px;
+    background-color: #EFF0F2;
+    border-radius: 6px;
 }
 
 .lpbg {

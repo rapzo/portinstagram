@@ -1,5 +1,5 @@
 body {
-  padding-top: 80px;
+  padding-top: 18%;
   background: #ecf0f1; }
 
 .btn-social {
@@ -28,7 +28,11 @@ body {
     border: #fff 3px solid; }
 
 .the-can {
-  padding-bottom: 30px; }
+  position: relative;
+  padding: 25px;
+  margin-bottom: 20px;
+  background-color: #EFF0F2;
+  border-radius: 6px; }
 
 .lpbg {
   position: absolute;

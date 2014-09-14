@@ -37,7 +37,7 @@ block content
                 span.fui-calendar
 
           .col-sm-6
-            .input-group.date#dtpicker-start
+            .input-group.date#dtpicker-end
               input(type='text', name='end', id='bounty-end', class='form-control flat input-lg', placeholder='... and ends')
               span.input-group-addon
                 span.fui-calendar
@@ -49,7 +49,7 @@ block content
   script(type='text/javascript').
     $(document).ready(function () {
       $('#dtpicker-start').datetimepicker();
-      $('#dtpicker-start').datetimepicker();
+      $('#dtpicker-end').datetimepicker();
     });
 
 
