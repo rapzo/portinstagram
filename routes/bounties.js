@@ -8,7 +8,7 @@ var request = require('request');
 router.get('/', function (req, res) {
 
     console.log("bounties?");
-    request('http://localhost:1337/api/bounties/', function (error, response, body) {
+    request('http://psoc.12feettall.com/api/bounties/', function (error, response, body) {
         console.log(response);
         console.log(error);
         
@@ -23,7 +23,7 @@ router.get('/', function (req, res) {
 router.get('/:id', function (req, res) {
 
     console.log("bounties?");
-    request('http://localhost:1337/api/bounties/'+req.params.id+'/entries/', function (error, response, body) {
+    request('http://psoc.12feettall.com/api/bounties/'+req.params.id+'/entries/', function (error, response, body) {
         
         function winner(bod){
             var cenas = false;
