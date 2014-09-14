@@ -18,7 +18,7 @@ block content
             .col-sm-8
               h4= (bounty.name ? bounty.name : 'No title')
               div(class='effeckt-caption', data-effeckt-type='revolving-door-left')
-                img(src=bounty.file_path ? bounty.file_path : '/pictures/flat-ui/icons/svg/map.svg', width=250, height=250)
+                img(src=bounty.file_path ? bounty.file_path : '/pictures/flat-ui/icons/svg/map.svg', width=250, height=250, class='img-rounded')
                 figcaption
                   a(href='/bounties/' + bounty.id)
                     div(class='effeckt-figcaption-wrap')
