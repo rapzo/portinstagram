@@ -1,26 +1,22 @@
 extends ../layouts/layout
 
 block content
-  .row
-    .col-md-10
-        h3= user.name
-  
-  
-  if user.email
+  .the-can
+    .row
+      .col-md-10
+          h3= user.name
+
+    if user.email
       .row
         .col-md-2 email
         .col-md-10= user.email
-  
-  h6 Achievements
-  ul(class='small-block-grid-3')
-      li
-        p Winning a bounty!
-        img(src='http://designmodo.github.io/Flat-UI/img/icons/svg/retina.svg')
-      li
-        p Participating in a bounty.
-        img(src='http://designmodo.github.io/Flat-UI/img/icons/svg/clipboard.svg')
-        
-      
-  
-        
-  
+
+    h6 Achievements
+    ul(class='small-block-grid-3')
+        li
+          p Winning a bounty!
+          img(src='http://designmodo.github.io/Flat-UI/img/icons/svg/retina.svg')
+        li
+          p Participating in a bounty.
+          img(src='http://designmodo.github.io/Flat-UI/img/icons/svg/clipboard.svg')
+

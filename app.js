@@ -17,6 +17,7 @@ var users = require('./routes/users');
 var businesses = require("./routes/businesses");
 var bounties = require('lib/bounties');
 
+var User = require('models/user');
 
 var api = {
   users: require("./routes/api/users"),
@@ -87,6 +88,20 @@ app.get('/logout', function (req, res) {
   req.logout();
   res.redirect('/');
 });
+
+app.use('/profile', auth.current_user, function (req, res) {
+  if (!req.isAuthenticated()) res.redirect('/login');
+
+  new User({ id: req.user.id }).fetch()
+    .then(function (user) {
+      res.render('users/view', {
+        title: '&pi; ' + user.get('username'),
+        user: user.toJSON()
+      });
+    }).catch(function () {
+      res.redirect('/login');
+    })
+})
 
 app.use('/users', auth.current_user, users);
 app.use('/business', auth.current_user, businesses);
