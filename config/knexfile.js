@@ -12,34 +12,16 @@ module.exports = {
   },
 
   staging: {
-    client: 'postgresql',
+    client: 'sqlite3',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'postgresql'
+      filename: './test.sqlite3'
     }
   },
 
   production: {
-    client: 'postgresql',
+    client: 'sqlite3',
     connection: {
-      database: 'my_db',
-      user:     'username',
-      password: 'password'
-    },
-    pool: {
-      min: 2,
-      max: 10
-    },
-    migrations: {
-      tableName: 'postgresql'
+      filename: './dev.sqlite3'
     }
   }
 
