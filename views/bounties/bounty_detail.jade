@@ -3,30 +3,42 @@ extends ../layouts/layout
 block content
   .the-can
     .row
-      .col-sm-12
+      .col-sm-10.col-sm-offset-1
+        .blue-can
 
-        //h1= title
-        h1= bounty.name
-        p= bounty.description
+          //h1= title
+          h1= bounty.name
+          p= bounty.description
 
-        if win
-          h2
-              p Winner!
-              a(href=win.link)
-                  p!= win.caption
-                  p!= win.points + ' points'
-                  img(src=win.thumbnail_url)
-        else
-          p= 'No winner for this bounty yet...'
-          
-        if entries.length != 0  
-            ul(class='small-block-grid-3')
-              p= 'Contestants:'
-              each entry in entries
-                      li
-                          a(href=entry.link)
-                              p!= entry.caption
-                              p!= entry.points + ' points'
-                              img(src=entry.thumbnail_url)
-        else
+          if win
+            .row
+              .col-sm-6.col-sm-offset-3
+                .block-center
+                  h2
+                    | Winner!
+                    a(href=win.link)
+                      h5
+                        span= win.caption
+                    h6
+                      span.label.label-success= win.points + ' points'
+                    a(href=win.link)
+                      img(src=win.thumbnail_url, class='img-rounded')
+          else
+            p= 'No winner for this bounty yet...'
+
+    .row
+      .col-sm-10.col-sm-offset-1
+        .blue-can
+          if entries.length != 0
+              ul(class='small-block-grid-3 clearfix')
+                h4= 'Contestants'
+                each entry in entries
+                  li
+                    a(href=entry.link)
+                      = entry.caption
+                      .points-can
+                        span.label.label-default= entry.points + ' points'
+                      img(src=entry.thumbnail_url, class='img-rounded')
+          else
             p= 'No entries for this bounty yet...'
+

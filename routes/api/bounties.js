@@ -57,13 +57,16 @@ router.get('/', function(req, res) {
     rtype = req.query.reward_type.split(",")
 
     query.whereIn("reward_type", rtype)
-  
   }
-  
-  //query.innerJoin("pictures", "bounties.id", "pictures.imageable_id")
-  
-  
+
+  /*
+  query.innerJoin("users", function () {
+    this.on("bounties.user_id", "=", "users.id")
+  })
+  */
+
   query.exec(function(err, bounty){
+    console.log(bounty)
     res.send(bounty);
    });
   

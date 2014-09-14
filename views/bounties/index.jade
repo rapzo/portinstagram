@@ -3,19 +3,27 @@ extends ../layouts/layout
 block content
   .the-can
     .row
-
-      //h1= title
-      ul(class='small-block-grid-3')
+      .col-sm-10.col-sm-offset-1
         each bounty in bounties
-                li
-                    p!= '<b>' + bounty.name + '</b>'
-                    div(class='effeckt-caption', data-effeckt-type='revolving-door-left')
-                        img(src=bounty.file_path, width=150, height=150)
-                        figcaption
-                            a(href='/bounties/' + bounty.id)
-                                div(class='effeckt-figcaption-wrap')
-                                    ul
-                                      li=  '#'+bounty.hashtag
-                                      li!= '<b>Start Date: </b>' + bounty.start_date
-                                      li!= '<b>End Date: </b>' + bounty.end_date
+          .row.blue-can
+            .col-sm-4
+              .profile-pic-md-wrp
+                each user in users
+                  if bounty.user_id == user.id
+                    h6 Created by
+                    img(src=user.profile_picture, class='img-circle')
+                    .center-block
+                      a(href='/user'+ user.id)= user.name
 
+            .col-sm-8
+              h4= (bounty.name ? bounty.name : 'No title')
+              div(class='effeckt-caption', data-effeckt-type='revolving-door-left')
+                img(src=bounty.file_path ? bounty.file_path : '/pictures/flat-ui/icons/svg/map.svg', width=250, height=250)
+                figcaption
+                  a(href='/bounties/' + bounty.id)
+                    div(class='effeckt-figcaption-wrap')
+                      ul
+                        li= bounty.description
+                        li=  '#'+bounty.hashtag
+                        li!= '<b>Start Date: </b>' + bounty.start_date
+                        li!= '<b>End Date: </b>' + bounty.end_date
