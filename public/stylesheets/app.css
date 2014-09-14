@@ -27,7 +27,19 @@ body {
     height: 55px;
     border: #fff 3px solid; }
 
-[class*="block-grid-"] {
+.the-can {
+  padding-bottom: 30px; }
+
+.lpbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../pictures/lpbg.jpg) 0 0 no-repeat;
+  width: 100%;
+  height: 50%;
+  z-index: 1; }
+
+5[class*="block-grid-"] {
   display: block;
   margin: -15px;
   padding: 0; }
