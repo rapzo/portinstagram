@@ -95,7 +95,7 @@ app.use('/profile', auth.current_user, function (req, res) {
   new User({ id: req.user.id }).fetch()
     .then(function (user) {
       res.render('users/view', {
-        title: '&pi; ' + user.get('username'),
+        title: 'π ' + user.get('username'),
         user: user.toJSON()
       });
     }).catch(function () {
