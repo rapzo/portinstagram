@@ -43,7 +43,7 @@ module.exports = (function (env) {
       instagram: {
         clientID: '2f1aaed6d2b34943a91c7b0b75c2413c',
         clientSecret: 'f0fa35bb82584fbe9c3e7402a0f520c4',
-        callbackURL: 'http://localhost:1337/login/instagram/cb'
+        callbackURL: 'http://psoc.12feettall.com/login/instagram/cb'
       },
       google: {
         clientID: 'portgoogle',
