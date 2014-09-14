@@ -1,9 +1,35 @@
 extends ../layouts/layout
 
 block content
-  h1= title
-  p Welcome to #{title}
-  p You are a succer!
+  .row
+    .col-sm-6.col-sm-offset-4
+      .tile
+        h5 Tired of pictures of food?
+        i But still you like it on Instagram...
 
-  h2= 'Check out our last bounties biatches!'
+  .row
+    .col-sm-6.col-sm-offset-1
+      .tile
+        h5 Do you think iced water over yourself is dumb?
+        i Who made donations after all?
 
+  .row
+    .col-sm-6.col-sm-offset-3
+      .tile
+        h5 So you think your pictures rock your timeline?
+        i Lots of friends love my pictures!!!
+
+  .row
+    .col-sm-8.col-sm-offset-2
+      .tile
+        h3 Then Portinstagram is for you!
+
+        br
+
+        h1 well, what are you waiting for?!?
+
+        .row
+          .col-sm-8.col-sm-offset-2
+            a(href='/login/instagram', class='btn btn-block btn-hg btn-social btn-instagram')
+              i(class="fa fa-instagram")
+              | Login with instagram

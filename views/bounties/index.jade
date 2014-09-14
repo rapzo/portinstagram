@@ -1,21 +1,21 @@
 extends ../layouts/layout
 
 block content
+  .the-can
+    .row
 
-  //h1= title
-  
-  ul(class='small-block-grid-3')
-    each bounty in bounties
-            li
-                p!= '<b>' + bounty.name + '</b>'
-                div(class='effeckt-caption', data-effeckt-type='revolving-door-left')
-                    img(src=bounty.file_path, width=150, height=150)
-                    figcaption
-                        a(href='/bounties/' + bounty.id)
-                            div(class='effeckt-figcaption-wrap')
-                                ul
-                                  li=  '#'+bounty.hashtag
-                                  li!= '<b>Start Date: </b>' + bounty.start_date
-                                  li!= '<b>End Date: </b>' + bounty.end_date
-                                  
+      //h1= title
+      ul(class='small-block-grid-3')
+        each bounty in bounties
+                li
+                    p!= '<b>' + bounty.name + '</b>'
+                    div(class='effeckt-caption', data-effeckt-type='revolving-door-left')
+                        img(src=bounty.file_path, width=150, height=150)
+                        figcaption
+                            a(href='/bounties/' + bounty.id)
+                                div(class='effeckt-figcaption-wrap')
+                                    ul
+                                      li=  '#'+bounty.hashtag
+                                      li!= '<b>Start Date: </b>' + bounty.start_date
+                                      li!= '<b>End Date: </b>' + bounty.end_date
 
