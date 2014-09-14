@@ -43,13 +43,29 @@ body {
   }
 }
 
+.the-can {
+  // background: #7f8c8d;
+  // border-radius: 20px;
+  padding-bottom: 30px;
+}
+
+.lpbg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  background: url(../pictures/lpbg.jpg) 0 0  no-repeat;
+  width: 100%;
+  height: 50%;
+  z-index: 1;
+}
+
 /////////////////////////////////////////////////////////////////////////////////////
 
 // Block Grid
 // Technique adapted from Foundation 5 for Bootstrap 3.
 // https://github.com/zurb/foundation/blob/f755d8704123f86c281ede0b171881e2672f150d/scss/foundation/components/_block-grid.scss
 // Original LESS Version by Christopher Mitchell (https://gist.github.com/ChrisTM)
-// Converted to SCSS by Rasmus JÃ¼rs (https://github.com/Jursdotme)
+5// Converted to SCSS by Rasmus JÃ¼rs (https://github.com/Jursdotme)
  
 [class*="block-grid-"] {
   display: block;

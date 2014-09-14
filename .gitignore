@@ -3,6 +3,6 @@ public/.sass-cache
 npm-debug.log
 bower_components
 */bower_components
-
+public/stylesheets/vendor.css
 dev.sqlite3
 *~
