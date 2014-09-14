@@ -1,6 +1,8 @@
 extends ../layouts/layout
 
 block content
+  h2 And the challenge will be like...
+
   form(action='/bounties/new', method='post', enctype='multipart/form-data', name='bounty-new', class='form-horizontal', role='form')
     .form-group
       label(class='col-sm-2 col-sm-offset-2 control-label', for='bounty-title') title
@@ -15,32 +17,44 @@ block content
     .form-group
       label(class='col-sm-2 col-sm-offset-2 control-label', for='bounty-tag') tag
       .col-sm-5
-         input(type='text', name='tag', id='bounty-tag', class='form-control flat input-lg')
+        input(type='text', name='tag', id='bounty-tag', class='form-control flat input-lg')
 
-    .form-group
-      label(class='col-sm-3 col-sm-offset-2 control-label', for='bounty-start') starting
-      .col-sm-4.input-group.date#dtpicker-start
-        input(type='text', name='start', id='bounty-start', class='form-control flat input-lg')
-        span.input-group-addon
-          span.fui-calendar
-
-    .form-group
-      label(class='col-sm-3 col-sm-offset-2 control-label', for='bounty-start') ending
-      .col-sm-4.input-group.date#dtpicker-start
-        input(type='text', name='end', id='bounty-end', class='form-control flat input-lg')
-        span.input-group-addon
-          span.fui-calendar
     .form-group
       label(class='col-sm-2 col-sm-offset-2 control-label', for='bounty-background') background
       .col-sm-5
          input(type='file', name='background', id='bounty-background')
 
+    .form-group
+      label(class='col-sm-2 col-sm-offset-2 control-label', for='bounty-tag') when
+      .col-sm-5
+        .row
+          .col-sm-6
+            .input-group.date#dtpicker-start
+              input(type='text', name='start', id='bounty-start', class='form-control flat input-lg', placeholder='it starts ...')
+              span.input-group-addon
+                span.fui-calendar
+
+          .col-sm-6
+            .input-group.date#dtpicker-start
+              input(type='text', name='end', id='bounty-end', class='form-control flat input-lg', placeholder='... and ends')
+              span.input-group-addon
+                span.fui-calendar
 
     .form-group
-      .col-sm-10.col-sm-offset-4
-        input(class='btn btn-embossed btn-primary', type='submit', value='Add Bounty!')
+      .col-sm-6.col-sm-offset-4
+        input(class='btn btn-embossed btn-primary', type='submit', value='make it happen!')
+
+  script(type='text/javascript').
+    $(document).ready(function () {
+      $('#dtpicker-start').datetimepicker();
+      $('#dtpicker-start').datetimepicker();
+    });
+
+
 
 block js_addons
-  script(src='/javascripts/vendor/bootstrap-datetimepicker.min.js')
   script(src='/javascripts/vendor/moment.min.js')
-  script(src='/javascripts/app/bounties.js')
+  script(src='/javascripts/vendor/bootstrap-datetimepicker.js')
+  //  script(src='/javascripts/app/bounties.js')
+
+

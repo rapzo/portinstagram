@@ -12,13 +12,16 @@ nav(class='navbar navbar-inverse navbar-fixed-top', role='navigation')
     .collapse.navbar-collapse#navbar-collapser
       ul.nav.navbar-nav.navbar-left
         li
-          a(href='/users/4/') profile
-        li
-          a(href='/bounties') bounties
-        li
-          a(href='/bounties/new') new bounty
-
-        li
           a(href='/hof') hall of fame
+
+      ul.nav.navbar-nav.navbar-left
+        li.dropdown
+          a(href='#', class='dropdown-toggle', data-toggle='dropdown') got bounties?
+          ul(class='dropdown-menu', role='menu')
+            li
+              a(href='/bounties') show me!
+            li
+              a(href='/bounties/new') roll one
+
       ul.nav.navbar-nav.navbar-right
         include ../elements/navbar-user

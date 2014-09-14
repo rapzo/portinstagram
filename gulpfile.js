@@ -30,7 +30,8 @@ gulp.task('vendor', function () {
   return gulp.src([
     base + 'bootstrap.min.css',
     base + 'flat-ui.css',
-    base + 'bootstrap-social.css'
+    base + 'bootstrap-social.css',
+    base + 'boostrap-datetimepicker'
   ])
     .pipe(concat('vendor.css'))
     .pipe(gulp.dest(path.join(__dirname, 'public', 'stylesheets') + '/'))
